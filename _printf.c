@@ -7,6 +7,14 @@
  */
 int _printf(const char *format, ...)
 {
+	int charprint = 0;
+
+	va_list ls_of_args;
+
+	va_start;
+
+
+	va_arg;
 
 
 
