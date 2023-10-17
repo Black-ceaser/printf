@@ -1,5 +1,6 @@
 #include "main.h"
 
+void print_buffer(char buffer[], int *buff_index);
 /**
  * _printf - Printf function
  * @format: format.
@@ -26,7 +27,7 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		buffer[buffer_index++] = format[i];
+		buffer[buff_index++] = format[i];
 		if (buff_index == BUFF_SIZE)
 			print_buffer(buffer, &buff_index);
 		prntd_chars++;
@@ -47,4 +48,16 @@ print_buffer(buffer, &buff_index);
 
 va_end(ls_of_args);
 return (printed_chars);
+}
+/**
+ * print_buffer - Prints the contents of the buffer if it exist
+ * @buffer: characters
+ * @buff_index: Index of each char
+ */
+
+void print_buffer(char buffer[], int *buff_index)
+{
+	if (*buff_index > 0)
+		write(1, &buffer[0], *buff_index);
+	*buff_index = 0;
 }
